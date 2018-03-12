@@ -1,11 +1,11 @@
 title: Calm Meditation (Sample App)
-# email:
+email: devcomm-appstore@amazon.com
 url: http://sample-firetv-web-app.s3-website-us-west-2.amazonaws.com
 media_url: https://m.media-amazon.com/images/G/01/mobile-apps/dex/amazoncreator/videos/
 thumb_url: https://m.media-amazon.com/images/G/01/mobile-apps/dex/amazoncreator/thumbs/
 github_repo: https://amzn.github.io/amazon-creator-mrss-feed-sample
 github_username:  amzn-tomjoht
-author: Amazon Appstore
+author: Devcomm-Appstore
 logo: calmmeditationlogo_small.png
 copyright_license: Apache 2.0 License
 copyright_url: https://www.apache.org/licenses/LICENSE-2.0
