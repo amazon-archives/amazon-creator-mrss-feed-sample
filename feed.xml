@@ -1,0 +1,52 @@
+---
+layout: null
+title: XML feed
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"
+    xmlns:atom="http://www.w3.org/2005/Atom">
+   <channel>
+      <title>{{ site.title }}</title>
+      <link>{{ site.url }}{{ site.baseurl }}</link>
+      <language>en-us</language>
+      <pubDate>{{ site.time | date: "%a, %d %b %Y %T %z" }}</pubDate>
+      <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %T %z" }}</lastBuildDate>
+      <managingEditor>{{ site.email }} ({{ site.author }})</managingEditor>
+      <description>{{ site.description }}</description>
+      <image>
+          <link>{{ site.baseurl | prepend: site.url }}</link>
+          <title>{{ site.title }}</title>
+          <url>{{ site.logo | prepend: site.thumb_url }}</url>
+          <description>{{ site.description }}</description>
+          <height>114</height>
+          <width>114</width>
+      </image>
+      <atom:link href="{{ feed.xml | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml" />
+      {% for item in site.posts %}
+      <item>
+         <title>{{ item.title }}</title>
+         <pubDate>{{ item.date | date: "%a, %d %b %Y %T %z" }}</pubDate>
+         <link>{{ item.url | prepend: site.baseurl | prepend: site.url }} </link>
+         <description>{{ item.description }}</description>
+         <guid isPermaLink="false">{{ item.url | prepend: site.baseurl | prepend: site.url }} </guid>
+         <media:category>{{ item.category }}</media:category>
+         <media:content
+             url="{{ item.file | prepend: site.media_url }}"
+             fileSize="{{ item.filesize }}"
+             type="video/mpeg"
+             height="1280"
+             width="720"
+             duration="{{ item.duration }}"
+             medium="video"
+             isDefault="true">
+            <media:title type="plain">{{ item.title }}</media:title>
+            <media:description type="html">{{ item.description }}</media:description>
+            <media:thumbnail url="{{ item.thumb | prepend: site.thumb_url }}" width="300" height="300"/>
+            <media:credit role="author" scheme="urn:ebu">{{ site.author }}</media:credit>
+            <media:copyright url="{{ site.copyright_url }}">{{ site.copyright_license }}</media:copyright>
+         </media:content>
+      </item>
+      {% endfor %}
+   </channel>
+</rss>

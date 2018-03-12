@@ -1,0 +1,35 @@
+title: Calm Meditation (Sample App)
+# email:
+url: http://sample-firetv-web-app.s3-website-us-west-2.amazonaws.com
+media_url: https://m.media-amazon.com/images/G/01/mobile-apps/dex/amazoncreator/videos/
+thumb_url: https://m.media-amazon.com/images/G/01/mobile-apps/dex/amazoncreator/thumbs/
+github_repo: https://amzn.github.io/amazon-creator-mrss-feed-sample
+github_username:  amzn-tomjoht
+author: Amazon Appstore
+logo: calmmeditationlogo_small.png
+copyright_license: Apache 2.0 License
+copyright_url: https://www.apache.org/licenses/LICENSE-2.0
+
+markdown: kramdown
+theme: minima
+permalink: /:title/
+plugins:
+  - jekyll-sitemap
+  - jekyll-mentions
+  - jekyll-redirect-from
+  - jekyll-paginate
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+description: >
+  Sample MRSS feed for an Amazon Creator app. Sample description: Contains short videos capturing still scenes from nature with a music background, intended for calming or meditation purposes. When you're stressed out or upset, watch
+  a few videos. As your mind focuses on the small details, let your worries and frustrations float away. The purpose is not to entertain or to distract, but to help calm, soothe, and
+  surface your inner quiet. The videos contain scenes from the San Tomas Aquinas trail in Santa Clara, California.
+
+header_pages:
+  - about.md
+  - feed.xml
+
+# this simple site uses the Jekyll minima theme: https://github.com/jekyll/minima
