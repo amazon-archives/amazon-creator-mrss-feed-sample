@@ -1,6 +1,5 @@
 ---
 layout: null
-title: XML feed
 ---
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -17,12 +16,12 @@ title: XML feed
       <image>
           <link>{{ site.baseurl | prepend: site.url }}</link>
           <title>{{ site.title }}</title>
-          <url>{{ site.logo | prepend: site.thumb_url }}</url>
+          <url>{{ site.logo | prepend: "/images/" | prepend: site.baseurl | prepend: site.url }}</url>
           <description>{{ site.description }}</description>
           <height>114</height>
           <width>114</width>
       </image>
-      <atom:link href="{{site.url}}/feed.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="{{site.url}}/feed_firetv.xml" rel="self" type="application/rss+xml" />
       {% for item in site.posts %}
       <item>
          <title>{{ item.title }}</title>
@@ -30,19 +29,19 @@ title: XML feed
          <link>{{ item.url | prepend: site.baseurl | prepend: site.url }} </link>
          <description>{{ item.description }}</description>
          <guid isPermaLink="false">{{ item.url | prepend: site.baseurl | prepend: site.url }} </guid>
-         <media:category>{{ item.category }}</media:category>
+         {% for cat in item.category %}
+         <media:category>{{ cat }}</media:category>
+         {% endfor %}
          <media:content
-             url="{{ item.file | prepend: site.media_url }}"
+             url="{{ item.media_url | prepend: site.baseurl_media }}"
+             language="en-us"
              fileSize="{{ item.filesize }}"
-             type="video/mpeg"
-             height="1280"
-             width="720"
              duration="{{ item.duration }}"
              medium="video"
              isDefault="true">
             <media:title type="plain">{{ item.title }}</media:title>
             <media:description type="html">{{ item.description }}</media:description>
-            <media:thumbnail url="{{ item.thumb | prepend: site.thumb_url }}" width="300" height="300"/>
+            <media:thumbnail url="{{ item.media_thumbnail | prepend: "/images/thumbs/" | prepend: site.baseurl | prepend: site.url }}" />
             <media:credit role="author" scheme="urn:ebu">{{ site.author }}</media:credit>
             <media:copyright url="{{ site.copyright_url }}">{{ site.copyright_license }}</media:copyright>
          </media:content>

@@ -1,0 +1,31 @@
+---
+layout: null
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/"
+    xmlns:atom="http://www.w3.org/2005/Atom">
+   <channel>
+     <title>{{ site.title }}</title>
+     <link>{{ site.url }}{{ site.baseurl }}</link>
+     <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %T %z" }}</lastBuildDate>
+     <description>{{ site.description }}</description>
+      {% for item in site.posts %}
+      <item>
+        <guid>{{ item.url | prepend: site.baseurl | prepend: site.url }} </guid>
+        <pubDate>{{ item.date | date_to_xmlschema }}</pubDate>
+        <media:title>{{ item.title }}</media:title>
+        <media:description>{{ item.description }}</media:description>
+        {% for cat in item.category %}
+        <media:category>{{ cat }}</media:category>
+        {% endfor %}
+        <media:thumbnail url="{{ item.media_thumbnail | prepend: "/images/thumbs/" | prepend: site.baseurl | prepend: site.url }}" />
+         <media:content
+             url="{{ item.media_url_mp4 | prepend: site.baseurl_media }}"
+             duration="{{ item.duration }}"
+             language="en-us"
+         />
+      </item>
+      {% endfor %}
+   </channel>
+</rss>
